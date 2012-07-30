@@ -1,4 +1,24 @@
 MessageBoard2::Application.routes.draw do
+
+	root :to => "messages#index"
+
+  resources :sessions, :only => [:new, :create, :destroy]
+
+ 	match '/signup', :to => 'users#new'
+	match '/signin', :to => 'sessions#new'
+	match '/signout', :to => 'sessions#destroy'
+
+	match "users/new", :to => "users#new", :as => 'new_user'
+	match "users/index", :to => "users#index", :as => 'user_list'
+	match "users/destroy", :to => "users#destroy"
+													
+	match "users/create", :to => "users#create", :via => :post, 
+												:as => "users_path"
+
+	resources :users
+	resources :messages
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

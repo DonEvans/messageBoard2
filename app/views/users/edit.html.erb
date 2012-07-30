@@ -1,0 +1,20 @@
+</div> <!-- Close sidebar div -->
+
+<div id="signUpForm">
+	<h1>Edit settings for <%= @user.name %></h1>
+	<%= form_for(@user) do |f| %>
+	<ul>
+		
+		<%= render :partial => 'selectFontAndTextColor',
+												:locals => { :f => f } %>
+
+		<li><%= f.submit "Submit" %></li>
+	</ul>
+	<% end %>
+
+
+<div>
+<%= link_to "User index", user_list_path %>
+</div>
+
+</div>

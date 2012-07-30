@@ -1,0 +1,28 @@
+</div> <!-- Close sidebar div -->
+	<div id="signUpForm" >
+	<br>
+	<h1>List of users</h1>
+
+
+	<ul>
+		<% for user in @user %>
+		<li>User <%= user.name %> writes <%= user.textColor %> text in <%=
+		   user.font %> font. 
+
+			<% if  current_user?(user) %>
+			&nbsp <%= link_to "show", :controller => "users",
+					:action => "show", :id => user.id %>
+			&nbsp <%= link_to "edit", :controller => "users",
+					:action => "edit", :id => user.id %>
+			&nbsp<%= link_to "destroy", :controller => "users",
+					:action => "destroy", :id => user.id %>
+			<% end %>
+
+		</li>
+		<% end %>
+	</ul>
+
+
+	
+<%= link_to "New user signup", new_user_path %>
+	</div>

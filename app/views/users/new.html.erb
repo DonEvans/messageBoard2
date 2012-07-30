@@ -1,0 +1,28 @@
+</div> <!-- Close sidebar div -->
+
+<%= render 'shared/error_messages' %>
+
+<div id="signUpForm">
+	<h1>New member signup</h1>
+
+	<%= form_for(@user) do |f| %>
+	<ul>
+		<li><%= f.label :name, "Your screen name"%><br />
+				<%= f.text_field :name %> </li> 
+
+		<%= render :partial => 'selectFontAndTextColor',
+												:locals => { :f => f } %>
+
+		<li><%= f.label :password, "Enter password, minimum 6 characters" %>
+				<br /> <%= f.password_field :password %></li>
+		<li><%= f.label :password_confirmation, "Enter password again" %>
+				<br /><%= f.password_field :password_confirmation %></li>
+		<li><%= f.submit "Submit" %></li>
+	</ul>
+	<% end %>
+
+	<% flash.each do |key,value| %>
+			<div class="<%= key %>"><%= value %></div>
+	<% end %>
+
+</div>

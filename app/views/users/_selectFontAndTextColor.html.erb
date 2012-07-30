@@ -1,0 +1,19 @@
+		<li><%= f.label :font, "Select your font" %><br />
+				<%= f.select :font,
+
+				options_for_select([["Bad Script","'Bad Script', cursive"],
+														["Coming Soon","'Coming Soon', cursive"],
+														["Fondamento","'Fondamento', cursive"],
+														["Lora","'Lora', serif"],
+														["Open Sans","'Open Sans', sans-serif"],
+														["Ubuntu","'Ubuntu', sans-serif"]
+													])
+					
+			 	 %></li>
+
+
+
+		<li><%= f.label :textColor, "Select your color"%><br />
+				<%= f.select :textColor,
+		%w( aqua olive orange red silver teal yellow white ) %></li>
+

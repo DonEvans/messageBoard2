@@ -1,0 +1,82 @@
+
+
+	<div id = "topics">
+		<ul>
+			<% counter = 1 %>
+			<% for message in @message %>
+				<li>
+					<%= counter %>.
+					<%= message.author %>: 
+					<%= message.title %>
+				</li>
+					<% counter = counter + 1 %>
+			<% end %>
+		</ul>
+	</div>
+
+	<div id = "newMessage" >
+
+		<%= form_for @new_message do |f|%>
+
+			<div>
+				<%= f.label :title, "Title, 25 character maximum" %>
+				<%= f.text_field :title %>
+			</div>
+
+			<% flash.each do |key,value| %>
+			<div class="flash <%= key %>"><%= value %></div>
+			<% end %>
+
+			<div>
+				<%= f.label :content, "800 character maximum" %>
+				<%= f.text_area :content %>
+			</div>
+
+			<div>
+				<%= f.hidden_field :author  %>
+			</div>
+
+
+			<div>
+				<%= f.submit "Submit" %>
+			</div>
+
+		<% end %>
+
+	</div>
+</div>  <!-- Sidebar div closed -->
+
+
+<div id = "messageArea">
+
+	<h4>Posts</h4>
+
+		<%= render 'shared/message_error_messages' %>
+		<!-- Error messages don't render. Fix this -->
+
+		<% for message in @message %>
+			<div class = "message"
+					 style = "color: <%= message.user.textColor %>  ;
+										font-family: <%= message.user.font %>;"
+			>
+			<p class="message">
+					<%=  message.content %>
+			</p>
+	
+			<p class = "info">
+				#<%= message.id %>
+				<%= message.created_at %>
+			</p>
+
+			<p class ="author">
+				<%= message.author %>
+			</p>
+
+			</div>
+			<br />
+		<% end %>
+
+</div>
+
+
+
