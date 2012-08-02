@@ -15,8 +15,13 @@ MessageBoard2::Application.routes.draw do
 	match "users/create", :to => "users#create", :via => :post, 
 												:as => "users_path"
 
+  match "topics/new", :to => 'topics#new', :as => 'new_topic'
+  #match "topics/create", :to => 'topics#create', :via => :post,
+                    #    :as => "topics_path"
+
 	resources :users
 	resources :messages
+  resources :topics
 
 
   # The priority is based upon order of creation:
