@@ -6,10 +6,10 @@
 
 	<div id = "newMessage" >
 
-		<%= render :partial => "shared/newMessage" %>
+		<%# render :partial => "shared/newMessage" %> 
 
 
-	</div>
+	</div> 
 </div>  <!-- Sidebar div closed -->
 
 
@@ -17,7 +17,42 @@
 
 	<h4>Recent posts</h4>
 
-		<%= render :partial => "shared/messageArea" %>
+		<%= render 'shared/message_error_messages' %>
+		<!-- Error messages don't render. Fix this -->
+
+		<% for message in @message %>
+
+			<h4 class = "compact"> 
+				<%= message.topic.title %>
+			</h4>
+
+			<div class = "message"
+					 style = "color: <%= message.user.textColor %>  ;
+										font-family: <%= message.user.font %>;"
+			>
+			<p class="message">
+					<%=  message.content %>
+			</p>
+	
+			<p class = "info">
+				#<%= message.id %>
+				<%= message.created_at %>
+			</p>
+
+			<p class ="author">
+				<%= message.user.name %>
+			</p>
+
+			<span class="links">
+				<% if signed_in? %>
+					<%= link_to "Reply", topic_path(message.topic)%>
+				<% end %>
+			</span>
+
+			</div>
+			<br />
+		<% end %>
+
 </div>
 
 

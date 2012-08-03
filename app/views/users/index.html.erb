@@ -6,15 +6,18 @@
 
 	<ul>
 		<% for user in @user %>
-		<li>User <%= user.name %> writes <%= user.textColor %> text in <%=
+		<li style = "color: <%= user.textColor %>; 
+					font-family: <%= user.font %>;">
+
+		User <%= user.name %> writes <%= user.textColor %> text in <%=
 		   user.font %> font. 
 
 			<% if  current_user?(user) %>
-			&nbsp <%= link_to "show", :controller => "users",
+			&nbsp; <%= link_to "show", :controller => "users",
 					:action => "show", :id => user.id %>
-			&nbsp <%= link_to "edit", :controller => "users",
+			&nbsp; <%= link_to "edit", :controller => "users",
 					:action => "edit", :id => user.id %>
-			&nbsp<%= link_to "destroy", :controller => "users",
+			&nbsp; <%= link_to "destroy", :controller => "users",
 					:action => "destroy", :id => user.id %>
 			<% end %>
 

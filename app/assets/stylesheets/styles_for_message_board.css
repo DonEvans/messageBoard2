@@ -10,7 +10,7 @@ body {
 
 div.container {
 	position:relative;
-  width: 100%;
+  	width: 100%;
 	/* width: 1020px; */
 	min-height: 950px;
 	min-width: 970px;
@@ -46,7 +46,7 @@ div.sidebar{
 }
 
 div#nav {
-	height: 140px;
+	height: 146px;
 	width: 125px;
 	float: left;
 	display: inline;
@@ -78,7 +78,7 @@ div.footer {
 }
 
 div#topics {
-	height: 140px;
+	height: 146px; /* Used to be 140px */
 	width: 222px;
 	float:left;
 	display: inline;
@@ -115,11 +115,19 @@ a:visited{
 	color: silver;
 	}
 
-h4 { text-align: center;}
+h4 { text-align: center;
+	 font-size: 10px ;
+	 margin-top: 2px;
+	}
 
 ul { list-style: none;
 		padding-left: 4px;
  }
+
+.compact {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
 	
 div.message {
 	width: 97%;
@@ -147,6 +155,11 @@ p.author {
 	display: inline;
 	margin: 0px;
 	font-size: 15px;
+}
+
+span.links {
+	margin-left: 200px;
+	font-size: 12px;
 }
 
 

@@ -26,10 +26,15 @@ class TopicsController < ApplicationController
 	@form_heading = "Write post"
 	@new_message = Message.new
 	@user = User.find :all
-	@topic_list = Topic.find :all
+	@topic_list = Topic.find :all, :order => "created_at DESC",
+							 :limit =>15
+	flash[:topic] = @topic
   end
 
   def index
+  	@title = "Topics index"
+  	@topic = Topic.find :all, :order => "created_at DESC"
+  	@user = User.find :all
   end
 
   private

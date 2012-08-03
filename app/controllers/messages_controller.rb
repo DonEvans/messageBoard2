@@ -6,6 +6,7 @@ before_filter :authenticate, :only => [:create]
 		@message.author = current_user.name
 		this_user = User.find_by_name current_user.name
 		@message.user_id = this_user.id
+		@message.topic_id = flash[:topic].id
 
 		if @message.save
 			redirect_to :action => 'index'
@@ -17,11 +18,13 @@ before_filter :authenticate, :only => [:create]
 
   def index
 		@title = "Message Board"
-		@message = Message.find :all
+		@message = Message.find :all, :order => "created_at DESC",
+								:limit => 50
 		@form_heading = "Write post"
 		@new_message = Message.new
 		@user = User.find :all
-		@topic_list = Topic.find :all
+		@topic_list = Topic.find :all, :order => "created_at DESC",
+							 :limit => 15
   end
 
 	private
