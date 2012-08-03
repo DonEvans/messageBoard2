@@ -1,2 +1,20 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+
+	<div id = "topics">
+		<%= render :partial => "shared/topics" %>
+	</div>
+
+	<div id = "newMessage" >
+
+		<%= render :partial => "shared/newMessage" %>
+
+
+	</div>
+</div>  <!-- Sidebar div closed -->
+
+
+<div id = "messageArea">
+
+	<h4> <%= @title %> </h4>
+
+		<%= render :partial => "shared/messageArea" %>
+</div>

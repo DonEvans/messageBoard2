@@ -21,6 +21,7 @@ before_filter :authenticate, :only => [:create]
 		@form_heading = "Write post"
 		@new_message = Message.new
 		@user = User.find :all
+		@topic_list = Topic.find :all
   end
 
 	private

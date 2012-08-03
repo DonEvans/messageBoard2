@@ -1,0 +1,14 @@
+<%# Functionality for topic links list%>
+<h4>Topic list</h4>
+<ul>
+	<% counter = 1 %>
+	<% for topic in @topic_list %>
+		<li>
+			<%= link_to topic.title, topic_path(topic) %>
+			<%# counter %>.
+			<%# topic.user.name %>: 
+			<%# topic.title %>
+		</li>
+			<%# counter = counter + 1 %>
+	<% end %>
+</ul>

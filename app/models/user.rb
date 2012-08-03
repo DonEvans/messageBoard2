@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+has_many :topics
 attr_accessible :name, :textColor, :font, :password, :password_confirmation
 
 validates :name, :presence => true,

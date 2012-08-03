@@ -1,5 +1,6 @@
 class Message < ActiveRecord::Base
 belongs_to :user
+belongs_to :topic
 attr_accessible :user_id, :content, :title, :author, :id, :created_at
 
 validates :user_id, :presence => true

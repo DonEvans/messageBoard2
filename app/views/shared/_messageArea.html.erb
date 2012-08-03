@@ -1,0 +1,25 @@
+<%# Functionality to display messages%>
+<%= render 'shared/message_error_messages' %>
+		<!-- Error messages don't render. Fix this -->
+
+		<% for message in @message %>
+			<div class = "message"
+					 style = "color: <%= message.user.textColor %>  ;
+										font-family: <%= message.user.font %>;"
+			>
+			<p class="message">
+					<%=  message.content %>
+			</p>
+	
+			<p class = "info">
+				#<%= message.id %>
+				<%= message.created_at %>
+			</p>
+
+			<p class ="author">
+				<%= message.user.name %>
+			</p>
+
+			</div>
+			<br />
+		<% end %>

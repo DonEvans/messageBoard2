@@ -1,0 +1,27 @@
+<%# Fuctionality to create new message %>
+<%= form_for @new_message do |f|%>
+
+			<div>
+				<%= f.label :title, "Title, 25 character maximum" %>
+				<%= f.text_field :title %>
+			</div>
+
+			<% flash.each do |key,value| %>
+			<div class="flash <%= key %>"><%= value %></div>
+			<% end %>
+
+			<div>
+				<%= f.label :content, "800 character maximum" %>
+				<%= f.text_area :content %>
+			</div>
+
+			<div>
+				<%= f.hidden_field :author  %>
+			</div>
+
+
+			<div>
+				<%= f.submit "Submit" %>
+			</div>
+
+		<% end %>
