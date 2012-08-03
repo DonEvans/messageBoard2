@@ -5,9 +5,10 @@
 		<% for message in @message %>
 			
 			<div class = "message"
-					 style = "color: <%= message.user.textColor %>  ;
-										font-family: <%= message.user.font %>;"
+				style = "color: <%= message.user.textColor %>;
+						font-family: <%= message.user.font %>;"
 			>
+			
 			<p class="message">
 					<%=  message.content %>
 			</p>

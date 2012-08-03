@@ -11,11 +11,10 @@
 
 <body>
 	<div class = "container">
-		<div id="header">Message board</div>
+		<div class="header">Message board</div>
 		<div class="innerContainer"> 
-
 			<div class="sidebar">
-				<div id = "nav">
+				<div class="nav">
 					<ul>
 
 					<li><%= link_to "Message Board", messages_path %></li>
@@ -24,16 +23,20 @@
 					<li><%= link_to "Sign up", new_user_path %></li>
 
 					<% if signed_in? %>
+
 						<li>
-							<%= link_to "Make new Topic", new_topic_path %>
+						   <%= link_to "Make new Topic", new_topic_path %>
 						</li>
-						<li><%= link_to "Sign out", signout_path, :method => :delete %>
+
+						<li><%= link_to "Sign out", signout_path, 
+								:method => :delete %>
 						</li>
+
 					<% else %>
 						<li><%= link_to "Sign in", signin_path %></li>
 					<% end %>
 
-				</ul>
+					</ul>
 				</div>
 
 <%= yield %>

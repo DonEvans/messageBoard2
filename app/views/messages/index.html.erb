@@ -1,24 +1,16 @@
-
-
-	<div id = "topics">
+<!-- Message index -->
+	<div class="topics" id = "longTopics">
 		<%= render :partial => "shared/topics" %>
 	</div>
 
-	<div id = "newMessage" >
+	<div id = "newMessage" ></div> 
 
-		<%# render :partial => "shared/newMessage" %> 
-
-
-	</div> 
 </div>  <!-- Sidebar div closed -->
 
 
-<div id = "messageArea">
+<div class="messageArea">
 
 	<h4>Recent posts</h4>
-
-		<%= render 'shared/message_error_messages' %>
-		<!-- Error messages don't render. Fix this -->
 
 		<% for message in @message %>
 
@@ -27,9 +19,10 @@
 			</h4>
 
 			<div class = "message"
-					 style = "color: <%= message.user.textColor %>  ;
-										font-family: <%= message.user.font %>;"
+				style = "color: <%= message.user.textColor %>;
+						font-family: <%= message.user.font %>;"
 			>
+
 			<p class="message">
 					<%=  message.content %>
 			</p>

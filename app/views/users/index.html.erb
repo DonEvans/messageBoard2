@@ -1,31 +1,28 @@
 </div> <!-- Close sidebar div -->
-	<div id="signUpForm" >
-	<br>
-	<h1>List of users</h1>
+	<div class="smallContainer" >
+		<br>
+		<h1>List of users</h1>
 
+		<ul>
+			<% for user in @user %>
+			<li style = "color: <%= user.textColor %>; 
+						font-family: <%= user.font %>;">
 
-	<ul>
-		<% for user in @user %>
-		<li style = "color: <%= user.textColor %>; 
-					font-family: <%= user.font %>;">
+			User <%= user.name %> writes <%= user.textColor %> text in <%=
+			   user.font %> font. 
 
-		User <%= user.name %> writes <%= user.textColor %> text in <%=
-		   user.font %> font. 
+				<% if  current_user?(user) %>
+				&nbsp; <%= link_to "show", :controller => "users",
+						:action => "show", :id => user.id %>
+				&nbsp; <%= link_to "edit", :controller => "users",
+						:action => "edit", :id => user.id %>
+				&nbsp; <%= link_to "destroy", :controller => "users",
+						:action => "destroy", :id => user.id %>
+				<% end %>
 
-			<% if  current_user?(user) %>
-			&nbsp; <%= link_to "show", :controller => "users",
-					:action => "show", :id => user.id %>
-			&nbsp; <%= link_to "edit", :controller => "users",
-					:action => "edit", :id => user.id %>
-			&nbsp; <%= link_to "destroy", :controller => "users",
-					:action => "destroy", :id => user.id %>
+			</li>
 			<% end %>
+		</ul>
 
-		</li>
-		<% end %>
-	</ul>
-
-
-	
-<%= link_to "New user signup", new_user_path %>
+		<%= link_to "New user signup", new_user_path %>
 	</div>

@@ -2,7 +2,7 @@
 
 <%= render 'shared/error_messages' %>
 
-<div id="signUpForm">
+<div class="smallContainer">
 	<h1>New member signup</h1>
 
 	<%= form_for(@user) do |f| %>
@@ -13,11 +13,15 @@
 		<%= render :partial => 'selectFontAndTextColor',
 												:locals => { :f => f } %>
 
-		<li><%= f.label :password, "Enter password, minimum 6 characters" %>
+		<li><br /><%= f.label :password, 
+					"Enter password, minimum 6 characters" %>
 				<br /> <%= f.password_field :password %></li>
-		<li><%= f.label :password_confirmation, "Enter password again" %>
+
+		<li><br /><%= f.label :password_confirmation, 
+								"Enter password again" %>
 				<br /><%= f.password_field :password_confirmation %></li>
-		<li><%= f.submit "Submit" %></li>
+
+		<li><br /><%= f.submit "Submit" %></li>
 	</ul>
 	<% end %>
 

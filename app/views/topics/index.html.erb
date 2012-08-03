@@ -1,19 +1,19 @@
 </div> <!-- Close sidebar div -->
-	<div id="signUpForm" >
+
+	<div class="smallContainer" >
 	<br>
 	<h1>List of Topics</h1>
 
+		<ul>
+			<% for topic in @topic %>
 
-	<ul>
-		<% for topic in @topic %>
-		<li>
-		   	<%= link_to topic.title, topic_path(topic) %>: was started at 
-		   		<%= topic.created_at %> by <%= topic.user.name %>
-		</li>
-		<% end %>
-	</ul>
+			<li>
+			   	<%= link_to topic.title, topic_path(topic) %>: was started at 
+			   		<%= topic.created_at %> by <%= topic.user.name %>
+			</li>
 
+			<% end %>
+		</ul>
 
-	
 <%= link_to "Make new Topic", new_topic_path %>
 	</div>

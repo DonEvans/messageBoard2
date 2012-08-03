@@ -1,13 +1,14 @@
 </div> <!-- Close sidebar div -->
 
-<div id="signUpForm">
+<div class="smallContainer">
 	<h1>User <%= @user.name %></h1>
 	<ul>
 		<li>Text color: <%= @user.textColor %></li>
 		<li>Font : <%= @user.font %></li>
 	<ul>
-</div>
 
-<div>
-<%= link_to "User index", user_list_path %>
+	<br />
+	<div>
+		<%= link_to "User index", user_list_path %>
+	</div>
 </div>

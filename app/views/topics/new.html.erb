@@ -1,17 +1,20 @@
 </div> <!-- Close sidebar div -->
 
-<div id = "signUpForm">
+<div class = "smallContainer">
 	<h1>Make new Topic</h1>
 	<%= form_for @topic do |f|%>
 		<ul>
+
 			<li>
 				<%= f.label :title, "Topic title, 25 character maximum" %>
 				<br />
 				<%= f.text_field :title %>
 			</li>
+
 			<li>
 				<%= f.submit "Submit" %>
 			</li>
+
 		</ul>
 	<% end %>
 </div>
