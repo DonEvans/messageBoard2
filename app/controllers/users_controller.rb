@@ -5,17 +5,16 @@ class UsersController < ApplicationController
 	def new
 		@title = "Signup Page"
 		@user = User.new
-  end
+  	end
 
  	def create
 		@user = User.new(params[:user])
 		if @user.save
 			sign_in @user
-			flash[:success] = "Welcome to the Sample app!"
 			redirect_to :action => 'index'
 		else
 			@title = 'Signup failed'
-			flash[:fail] = "Signup failed!"
+			flash[:center] = "Signup failed!"
 			render 'new'
 		end
 	end

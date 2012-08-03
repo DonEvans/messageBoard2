@@ -1,10 +1,13 @@
 /*Styles for message board*/
 
+/*Color and font-size variables */
 $darkGray: #333;
+$short: 10px;
+$standard: 15px;
 
 body {
 	background-color: black;
-	font-size: 15px;
+	font-size: $standard;
 	color: silver;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -74,14 +77,13 @@ div#longTopics {
 	height: 420px;
 }
 
-div#newMessage {
+div.newMessage {
 	height: 610px;  
 	width: 357px;
 	float: left;
 	position: absolute;
 	top: 146px;
-	/* border-style: solid;
-	border-color: black; */
+	margin-top: 30px;
 }
 
 div.messageArea {
@@ -89,7 +91,7 @@ div.messageArea {
 	display: inline;
 	width: 61.6%; 
 	overflow: auto;
-	font-size: 10px;
+	font-size: $short;
 }
 
 a:link {
@@ -103,7 +105,7 @@ a:visited{
 	}
 
 h4 { text-align: center;
-	 font-size: 10px ;
+	 font-size: $short ;
 	 margin-top: 2px;
 	}
 
@@ -121,7 +123,7 @@ div.message {
 	border-style: dotted;
 	border-color: silver;
 	padding: 0px 4px 0px 4px;
-	font-size: 15px;
+	font-size: $standard;
 }
 
 p.message{
@@ -133,7 +135,7 @@ p.info {
 	float: right;
 	display: inline;
 	margin: 0px;
-	font-size: 10px;
+	font-size: $short;
 	font-family: 'Open Sans', sans-serif;
 	
 }
@@ -141,7 +143,7 @@ p.info {
 p.author {
 	display: inline;
 	margin: 0px;
-	font-size: 15px;
+	font-size: $standard;
 }
 
 span.links {
@@ -149,34 +151,18 @@ span.links {
 	font-size: 12px;
 }
 
-
-/*Styles for forms*/
-#message_title {
-	width: 11em;
-	overflow: hidden;
+#smallContainer li {
+	margin-bottom: 10px ;
 }
 
-#message_content {
-	overflow: hidden;
-}
-
-#signUpForm li {
+ul.form li {
 	margin-bottom: 10px ;
 }
 
 /* Styles for flash */
 
-/*
-.success{
-	background-color: #333;
-	text-align: center;
-	width: 200px;
-	position: absolute;
-	left: 450px;
-} */
-
-.fail{
-	background-color: #333;
+.centerFlash{
+	background-color: $darkGray;
 	text-align: center;
 	width: 200px;
 	position: absolute;
@@ -197,16 +183,14 @@ span.links {
 
 
 #error_explanation {
-	float:right;
+  float:right;
   width: 200px;
   border: 2px solid silver;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
   background-color: olive;
-}
-
-#error_explanation h2 {
+	h2 {
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
@@ -214,19 +198,17 @@ span.links {
   margin: -7px;
   background-color: black;
   color: #fff;
-}
-
-#error_explanation p {
-  color: #333;
+	}
+	p {
+  color: $darkGray;
   margin-bottom: 0;
   padding: 5px;
-}
-
-#error_explanation ul li {
+	}
+	ul li {
   font-size: 12px;
   list-style: square;
+	}
 }
-
 
 /*Available fonts
 font-family: 'Lora', serif;

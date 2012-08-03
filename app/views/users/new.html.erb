@@ -6,27 +6,23 @@
 	<h1>New member signup</h1>
 
 	<%= form_for(@user) do |f| %>
-	<ul>
+	<ul class="form">
 		<li><%= f.label :name, "Your screen name"%><br />
 				<%= f.text_field :name %> </li> 
 
 		<%= render :partial => 'selectFontAndTextColor',
 												:locals => { :f => f } %>
 
-		<li><br /><%= f.label :password, 
+		<li><%= f.label :password, 
 					"Enter password, minimum 6 characters" %>
 				<br /> <%= f.password_field :password %></li>
 
-		<li><br /><%= f.label :password_confirmation, 
+		<li><%= f.label :password_confirmation, 
 								"Enter password again" %>
 				<br /><%= f.password_field :password_confirmation %></li>
 
-		<li><br /><%= f.submit "Submit" %></li>
+		<li><%= f.submit "Submit" %></li>
 	</ul>
-	<% end %>
-
-	<% flash.each do |key,value| %>
-			<div class="<%= key %>"><%= value %></div>
 	<% end %>
 
 	<p>
@@ -37,5 +33,7 @@
 		<span style="font-family: Open Sans; color: teal;">Open Sans, </span>
 		<span style="font-family: Ubuntu; color: orange;">Ubuntu </span>
 	</p>
+
+	<div class="centerFlash"><%= flash[:center] %></div>
 
 </div>

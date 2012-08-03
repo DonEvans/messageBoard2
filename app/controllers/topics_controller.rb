@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
 	if @topic.save
 			redirect_to messages_path
 		else
-			#Insert flash message 
+			flash[:center] = "No new Topic created!"
 			redirect_to :action => 'new'
 		end
   end

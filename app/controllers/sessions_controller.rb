@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
 
 	def create
 		user = User.authenticate(params[:session][:name],
-															params[:session][:password])
+								params[:session][:password])
 		if user.nil?
 			@title = "Sign in"
-			flash[:fail] = "Sign in failed!"
+			flash[:center] = "Sign in failed!"
 			render 'new'
 		else
 			sign_in user
