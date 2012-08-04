@@ -3,10 +3,9 @@ before_filter :authenticate, :only => [:create]
 
  	def create
 		@message = Message.new(params[:message])
-		#@message.author = current_user.name
 		this_user = User.find_by_name current_user.name
 		@message.user_id = this_user.id
-		@message.topic_id = flash[:topic].id
+		@message.topic_id = flash[:topic_id]
 
 		if @message.save
 			redirect_to :action => 'index'

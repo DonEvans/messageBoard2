@@ -22,13 +22,14 @@ class TopicsController < ApplicationController
   def show
   	@topic = Topic.find(params[:id])
 	@title = @topic.title 
-	@message = Message.find_all_by_topic_id(params[:id])
+	@message = @topic.messages
+	# @message = Message.find_all_by_topic_id(params[:id])
 	@form_heading = "Write post"
 	@new_message = Message.new
 	@user = User.find :all
 	@topic_list = Topic.find :all, :order => "created_at DESC",
 							 :limit =>15
-	flash[:topic] = @topic
+	flash[:topic_id] = @topic.id
   end
 
   def index
